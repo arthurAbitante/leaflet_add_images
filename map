@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>A simple map</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+
+ <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+   crossorigin=""></script>
+
+    <style>
+
+        #mapid{height: 480px;}
+    </style>
+</head>
+
+<body>
+    <div id="mapid"></div>
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script>
+	var mymap = L.map('mapid').setView([-27.712, -50.006], 5);
+ //-27.712 -51.006
+L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZnh4ZGV2IiwiYSI6ImNqcmttcXFwaDA2eGg0YXAzaWw0bmg1MDkifQ.YoVfRvnNUxGAERgmRq0quQ', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox.streets',
+            accessToken: 'pk.eyJ1IjoiZnh4ZGV2IiwiYSI6ImNqcmttcXFwaDA2eGg0YXAzaWw0bmg1MDkifQ.YoVfRvnNUxGAERgmRq0quQ'
+        }).addTo(mymap);
+        
+        var truck = L.icon({
+			iconUrl: 'caminhao.png',
+			iconSize: [60, 60],
+			iconAnchor: [60,60],
+			popupAnchor: [-3, -76]
+			
+			});
+        var car = L.icon({
+			
+			iconUrl: 'carro.png',
+			iconSize: [60, 60],
+			iconAnchor: [60,60],
+			popupAnchor: [-3, -76]
+			
+			});
+        
+        
+		var marker = L.marker([-27.712, -51.006], {icon: truck}).addTo(mymap);
+		var marker = L.marker([-25.712, -51.100], {icon: car}).addTo(mymap);
+		
+	
+	
+
+ 
+    </script>
+</body>
+
+</html>
